@@ -1,4 +1,5 @@
 import {
+  AfterContentInit,
   Component,
   contentChild,
   ContentChild,
@@ -33,6 +34,10 @@ export class ControlComponent {
   // >;
   private control =
     contentChild<ElementRef<HTMLTextAreaElement | HTMLInputElement>>("input");
+
+  // ngAfterContentInit(): void {
+  //   console.log("After Content Init", this.control()?.nativeElement);
+  // }
 
   onClick() {
     console.log("clicked!!!!");

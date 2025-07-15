@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { NewTicketComponent } from "./new-ticket/new-ticket.component";
-import { Ticket } from "./ticket.model";
+import { Ticket, TicketInput } from "./ticket.model";
 
 @Component({
   selector: "app-tickets",
@@ -11,4 +11,14 @@ import { Ticket } from "./ticket.model";
 })
 export class TicketsComponent {
   tickets: Ticket[] = [];
+
+  onAdd(ticketInput: TicketInput) {
+    const ticket: Ticket = {
+      title: ticketInput.title,
+      request: ticketInput.request,
+      id: Math.random().toString(),
+      status: "open",
+    };
+    this.tickets.push(ticket);
+  }
 }
